@@ -1,9 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whats For Dinner?</title>
+</head>
 
 {{!-- site description --}}
-
+<span>
+    <p>Whats For Dinner? This site will allow you to enter a list of ingredients and see dishes you can make with them.<br>Recipes for various dishes can also be looked up here<br>Finally, you can add your own recipes to the recipe book!</p>
+</span>
 {{!-- search bar --}}
+<div>
+    <label for="searchBar">Search</label>
+    <form name="searchBar" id="searchBar" placeholder="Enter dish or ingredients here!"></form>
+</div>
 
+<div id="recipe-display"></div>
 {{!-- section where a handlebars call is made with a list of recipes --}}
-
-{{!-- --> Sub division where ingredients can be loaded --}}
