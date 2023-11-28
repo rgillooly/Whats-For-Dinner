@@ -17,8 +17,12 @@ app.get('/', (req, res => {
 app.get('/recipes', (req, res => {
     res.fetch('https://api.edamam.com/api/recipes/v2?type=public&q=' + searchTerm + '$app_id=4f980683&app_key=f3199e18b74f147cdd500e68e350a6a6&imageSize=LARGE')
 }))
-
+d
 // route to get ingredients
 app.get('/recipes/ingredients', (req, res => {
     res.fetch('https://api.edamam.com/api/recipes/v2?type=public&q=' + selectedRecipe + '&app_id=4f980683&app_key=f3199e18b74f147cdd500e68e350a6a6&imageSize=LARGE&field=ingredients')
 }))
+// post route to sned entered dish data
+ app.post('/newrecipe', (rew, res => {
+    res.send( new DISH )
+ }))
