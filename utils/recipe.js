@@ -10,8 +10,7 @@ var searchTerm = searchBar.textContent;
 var recipes = [];
 
 function executeRecipesCall() {
-for (i = 0; i < 5; i++)
-    var recipes = fetch('https://api.edamam.com/api/recipes/v2?type=public&q=' + searchTerm + '$app_id=4f980683&app_key=f3199e18b74f147cdd500e68e350a6a6&imageSize=LARGE');
+    var recipes = fetch('https://api.edamam.com/api/recipes/v2?limit=5&type=public&q=' + searchTerm + '&$app_id=4f980683&app_key=f3199e18b74f147cdd500e68e350a6a6&imageSize=LARGE');
 }
 
 var selectedRecipe = document.getElementById("recipe" + i);
