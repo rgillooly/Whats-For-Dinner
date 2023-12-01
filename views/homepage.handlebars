@@ -1,6 +1,6 @@
 <!-- Loops over each object in the dishes array -->
 {{#each dishes as |dish| }}
-<div>
+
     <div>
         <img src="{{dish.img}}">
         <h2>
@@ -11,4 +11,4 @@
         </p>
         <p>Cooked Up By: {{dish.creator}}</p>
     </div>
-</div>
+{{/each}}
