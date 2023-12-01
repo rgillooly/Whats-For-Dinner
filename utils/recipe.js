@@ -3,11 +3,12 @@ const { v4: uuidv4 } = require('uuid');
 // Selector for the search bar
 var searchBar = document.getElementById("searchBar");
 
-// Event listener for the search bar
-searchBar.addEventListener("submit", executeRecipesCall);
-
 // Set search term to form content
 var searchTerm = searchBar.textContent;
+
+var searchButton = document.getElementById("searchBtn");
+
+searchButton.addEventListener('click', executeRecipesCall);
 
 // Function that creates an array of recipes
 async function executeRecipesCall() {
