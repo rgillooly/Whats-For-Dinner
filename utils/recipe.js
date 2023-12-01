@@ -44,6 +44,33 @@ function executeIngredientsCall() {
     fetch('https://api.edamam.com/api/recipes/v2?type=public&q=' + selectedRecipe + '&app_id=4f980683&app_key=f3199e18b74f147cdd500e68e350a6a6&imageSize=LARGE&field=ingredients');
 }
 
+async function executeIngredientsCall() {
+    try {
+        const ingurl = 'https://api.edamam.com/api/recipes/v2?type=public&q=' + selectedRecipe + '&app_id=4f980683&app_key=f3199e18b74f147cdd500e68e350a6a6&imageSize=LARGE&field=ingredients';
+        const hits = await response.json();
+        assignUniqueIds(hits);
+        return hits;
+    } catch (error) {
+        console.error('Error fetching recipes', error);
+        throw error;
+    }
+}
+
+async function fetchAndProcessIngredients() {
+    try {
+        const results = await executeIngredientsCall(); // Call executeRecipesCall to get hits
+        // Assuming results is an array in the fetched data
+        if (Array.isArray(results)) {
+            console.log('Array of ingredients:', results);
+        } else {
+            console.error('Unexpected data structure (data may not be an array):', results);
+        }
+    } catch (error) {
+        // Handle errors
+        console.error('Error processing data:', error);
+    }
+}
+
 function generateUniqueId() {
     return uuidv4();
 }
