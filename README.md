@@ -1,16 +1,16 @@
 # Whats-For-Dinner
 
 ## Table of Contents
-### * [Description](#description)
-### * [Technologies](#technologies)
-### * [Features](#features)
-### * [Installation](#installation)
-### * [Usage](#usage)
-### * [Deployment](#deployment)
-### * [Contributing](#contributing)
-### * [Tests](#tests)
-### * [Questions](#questions)
-### * [License](#license)
+### [Description](#description)
+### [Technologies](#technologies)
+### [Features](#features)
+### [Installation](#installation)
+### [Usage](#usage)
+### [Deployment](#deployment)
+### [Contributors](#contributors)
+### [Tests](#tests)
+### [Questions](#questions)
+### [License](#license)
 
 ## Description
 
@@ -23,10 +23,9 @@ Whats For Dinner is a web application that allows users to discover, share, and 
 - MySQL
 - Sequelize ORM
 - Handlebars.js
-- Clarifai (Image Recognition API)
 - Express-session & Cookies (Authentication)
 - Heroku (Deployment)
-- HTML5, CSS3
+- HTML, CSS
 
 ## Features
 
@@ -50,7 +49,6 @@ Whats For Dinner is a web application that allows users to discover, share, and 
         DB_USER=your_database_username
         DB_PASSWORD=your_database_password
         JAWSDB_URL=your_production_database_url (if applicable)
-        CLARIFAI_API_KEY=your_clarifai_api_key
 
  4. Run the application:
         npm start
