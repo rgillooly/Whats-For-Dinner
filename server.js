@@ -1,7 +1,7 @@
 // Import express
 const express = require('express');
 // import sequelize
-const sequelize = require('sequelize');
+const sequelize = require('./config/connection');
 // import express-handlebars
 const exphbs = require('express-handlebars');
 // import additional modules
@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 3001; // Define the port number
 
 // Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create();
 
 const sess = {
     secret: 'secret secret',
@@ -56,6 +56,6 @@ sequelize.sync({ force: false }).then(() => {
   });
 
 // load the page with a search bar (Get Request)
-app.get('/', (req, res => {
+app.get('/', (req, res) => {
     res.render('index.handlebars')
-}))
+});
