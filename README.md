@@ -29,9 +29,8 @@ Whats For Dinner is a web application that allows users to discover, share, and 
 
 ## Features
 
-- **Image-based Recipe Search**: Users can upload images of ingredients or dishes to find related recipes using Clarifai's image recognition technology.
-- **User Authentication**: Secure user authentication and session management using express-session and cookies.
 - **Search and Filters**: Users can search for recipes by keywords, categories, or ingredients.
+- **User Authentication**: Secure user authentication and session management using express-session and cookies.
 - **Interactive UI**: A user-friendly and responsive interface that enhances user interaction and experience.
 - **Community Interaction**: Users can share recipes, rate, comment, and save their favorite recipes.
 
