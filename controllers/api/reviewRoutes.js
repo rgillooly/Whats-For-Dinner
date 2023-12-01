@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const { Dish } = require('../../models');
+const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
     try {
-        const newDish = await Dish.create({
+        const newReview = await Review.create({
             ...req.body,
             user_id: req.session.user_id,
         });
 
-        res.status(200).json(newDish);
+        res.status(200).json(newReview);
     } catch (err) {
         res.status(400).json(err);
     }
@@ -17,19 +17,19 @@ router.post('/', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const dishData = await Dish.destroy({
+        const reviewData = await Review.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
             },
         });
 
-        if (!dishData) {
-            res.status(404).json({ message: 'No dish found with this id!' });
+        if (!reviewData) {
+            res.status(404).json({ message: 'No review found with this id!' });
             return;
         }
 
-        res.status(200).json(dishData);
+        res.status(200).json(reviewData);
     } catch (err) {
         res.status(500).json(err);
     }
