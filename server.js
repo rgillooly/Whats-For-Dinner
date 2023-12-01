@@ -8,7 +8,7 @@ const exphbs = require('express-handlebars');
 const session = require('express-session'); // Session middleware
 const routes = require('./controllers'); // Import routes
 const path = require('path'); // Path module for file path manipulation
-const helpers = require('./utils/helpers'); // Custom helper functions
+
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store); // Sequelize session store
 
