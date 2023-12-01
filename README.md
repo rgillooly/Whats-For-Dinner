@@ -49,7 +49,10 @@ Whats For Dinner is a web application that allows users to discover, share, and 
         DB_PASSWORD=your_database_password
         JAWSDB_URL=your_production_database_url (if applicable)
 
- 4. Run the application:
+ 4. In the terminal, log in to MySQL and use Schema.sql as Source:
+       - Login: mysql -u root -p
+       - source db/schema.sql
+ 6. Run the application:
         npm start
 
 ## Usage
