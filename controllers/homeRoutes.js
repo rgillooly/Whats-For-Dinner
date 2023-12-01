@@ -9,7 +9,7 @@ router.get('/', async (req,res) => {
             include: [
                 {
                 model: User,
-                attributes: ['name'],
+                attributes: ['username'],
              },
             ],
         });
@@ -32,14 +32,14 @@ router.get('/dish/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
                 {
                     model: Review,
                     include: [
                         {
                             model: User,
-                            attributes: ['name'],
+                            attributes: ['username'],
                         },
                     ],
                 },
