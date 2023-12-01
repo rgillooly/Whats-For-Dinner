@@ -9,15 +9,11 @@ const session = require('express-session'); // Session middleware
 const routes = require('./controllers'); // Import routes
 const path = require('path'); // Path module for file path manipulation
 
-
 const SequelizeStore = require('connect-session-sequelize')(session.Store); // Sequelize session store
 
 // Create an Express app instance
 const app = express();
 const PORT = process.env.PORT || 3001; // Define the port number
-
-// Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers });
 
 const sess = {
     secret: 'secret secret',
