@@ -46,6 +46,7 @@ function executeIngredientsCall() {
 function generateUniqueId() {
     return uuidv4();
 }
+}
 
 function assignUniqueIds(recipes) {
     let counter = 0;
