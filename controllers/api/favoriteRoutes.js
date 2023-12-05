@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Favorite } = require('../../models');
+
 const withAuth = require('../../utils/auth');
 
 // Route to add a dish to favorites
