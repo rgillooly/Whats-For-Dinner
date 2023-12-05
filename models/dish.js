@@ -7,7 +7,8 @@ Dish.init(
     {
        id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
         },
         name: {
         type: DataTypes.STRING,
@@ -18,7 +19,7 @@ Dish.init(
         allowNull: true
         },
         ingredients: {
-        type: DataTypes.ARRAY,
+        type: DataTypes.JSON,
         allowNull: false
         }
     },
