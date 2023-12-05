@@ -2,7 +2,7 @@
 
 <h3>Create a New Dish:</h3>
 
-<form>
+<form class="new-dish-form">
     <div>
         <label for="dish-name">Dish Name:</label>
         <input type="text" id="dish-name" name="dish-name" />
@@ -17,7 +17,7 @@
 </form>
 
 {{#if mydishes.length}}
-<div>
+<div class="dish-list">
     <h3>My Dishes:</h3>
 
     {{#each mydishes as |mydish|}}
@@ -34,7 +34,7 @@
 {{/if}}
 
 {{#if myfavorites.length}}
-<div>
+<div class="dish-list">
     <h3>My favorites:</h3>
 
     {{#each myfavorites as |myfavorite|}}
@@ -50,4 +50,4 @@
 </div>
 {{/if}}
 
-<script src="../public/js/profile.js"></script>
+<script src="./js/profile.js"></script>
