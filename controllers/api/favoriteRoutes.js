@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User, Dish, Favorite } = require('../models/index');
-const withAuth = require('../utils/auth');
+const withAuth = require('../../utils/auth');
 
 // Route to add a dish to favorites
 router.post('/add/:dishId', withAuth, async (req, res) => {
