@@ -15,7 +15,7 @@ Favorite.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: User,
+        model: 'user',
         key: 'id',
       },
     },
@@ -23,7 +23,7 @@ Favorite.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: Dish,
+        model: 'dish',
         key: 'id',
       },
     },
@@ -32,7 +32,7 @@ Favorite.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Favorite',
+    modelName: 'favorite',
   }
 );
 

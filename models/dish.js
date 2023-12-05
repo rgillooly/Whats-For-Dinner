@@ -27,7 +27,7 @@ Dish.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Dish',
+        modelName: 'dish',
       }
     );
     
