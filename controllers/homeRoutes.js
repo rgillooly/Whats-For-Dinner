@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Dish, User, Review } = require('../models/index');
+const { Dish, User, Review, Favorite } = require('../models/index');
 const withAuth = require('../utils/auth');
 
 //Route to get all dishes with associated user data
