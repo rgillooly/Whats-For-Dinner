@@ -85,7 +85,7 @@ router.get('/favorites', withAuth, async (req, res) => {
         // Fetch the user's favorite dishes
         const userFavorites = await Favorite.findAll({
             where: { userId },
-            include: [{ model: Dish, attributes: ['id', 'name'] }]
+            include: [{ model: Dish, attributes: ['id', 'username'] }]
         });
 
         const favorites = userFavorites.map((favorite) => favorite.Dish);
