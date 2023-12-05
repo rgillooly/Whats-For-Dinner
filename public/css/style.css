@@ -5,3 +5,8 @@
 .modal-visible {
     display: block;
 }
+
+.recipediv {
+    display: block;
+    padding-left: 50 px;
+}
