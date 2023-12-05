@@ -77,6 +77,26 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
+// Route to display user's favorite dishes
+router.get('/favorites', withAuth, async (req, res) => {
+    try {
+        const userId = req.session.user_id;
+
+        // Fetch the user's favorite dishes
+        const userFavorites = await Favorite.findAll({
+            where: { userId },
+            include: [{ model: Dish, attributes: ['id', 'name'] }]
+        });
+
+        const favorites = userFavorites.map((favorite) => favorite.Dish);
+
+        res.render('favorites', { favorites, logged_in: true });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
 
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {
