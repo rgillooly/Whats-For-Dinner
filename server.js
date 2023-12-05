@@ -55,8 +55,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
   });
-
-// load the page with a search bar (Get Request)
-app.get('/', (req, res) => {
-    res.render('/layouts/index.handlebars')
-});
