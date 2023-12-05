@@ -1,58 +1,40 @@
 const router = require('express').Router();
-const { User, Dish, Favorite } = require('../../models');
+const { Favorite } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Route to add a dish to favorites
 router.post('/add/:dishId', withAuth, async (req, res) => {
-  try {
-    const { dishId } = req.params;
-    const { userId } = req.session;
+    try {
+        const userId = req.session.user_id;
+        const dishId = req.params.dishId;
 
-    // Check if the dish is already favorited by the user
-    const existingFavorite = await Favorite.findOne({
-      where: {
-        dishId,
-        userId,
-      },
-    });
+        // Create a favorite entry associating the dish with the user
+        const newFavorite = await Favorite.create({ userId, dishId });
 
-    if (existingFavorite) {
-      // If the dish is already favorited, handle accordingly
-      return res.status(400).json({ message: 'Dish already favorited' });
+        res.status(200).json(newFavorite);
+    } catch (err) {
+        res.status(400).json(err);
     }
-
-    // Create a new favorite association between user and dish
-    await Favorite.create({
-      dishId,
-      userId,
-    });
-
-    res.status(200).json({ message: 'Dish added to favorites' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Failed to add dish to favorites' });
-  }
 });
 
 // Route to remove a dish from favorites
 router.delete('/remove/:dishId', withAuth, async (req, res) => {
-  try {
-    const { dishId } = req.params;
-    const { userId } = req.session;
+    try {
+        const userId = req.session.user_id;
+        const dishId = req.params.dishId;
 
-    // Find and delete the favorite association
-    await Favorite.destroy({
-      where: {
-        dishId,
-        userId,
-      },
-    });
+        // Delete the favorite entry for the specified dish and user
+        const deletedFavorite = await Favorite.destroy({ where: { userId, dishId } });
 
-    res.status(200).json({ message: 'Dish removed from favorites' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Failed to remove dish from favorites' });
-  }
+        if (!deletedFavorite) {
+            res.status(404).json({ message: 'No favorite found with this id!' });
+            return;
+        }
+
+        res.status(200).json({ message: 'Favorite removed successfully' });
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 module.exports = router;
