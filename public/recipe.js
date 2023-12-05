@@ -31,11 +31,17 @@ document.addEventListener('DOMContentLoaded', function () {
           recipeDiv.innerHTML = `
             <img src="${hit.recipe.image}" alt="${hit.recipe.label}" />
             <p>${hit.recipe.label}</p>
+            <div id="ingredients">
+            <p>Ingredients: ${hit.recipe.ingredientLines.join(', ')}</p>
+            </div>
           `;
 
           recipeDiv.addEventListener('click', function () {
             console.log(`Div clicked for recipe: ${hit.recipe.label}`);
             // You can navigate or perform other actions here
+            var modal = document.getElementById('myModal');
+        modal.classList.remove('modal-hidden');
+        modal.classList.add('modal-visible');
           });
           
           resultsContainer.appendChild(recipeDiv);
