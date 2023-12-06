@@ -7,6 +7,6 @@
 }
 
 .resultsContainer {
-    display: block;
-    padding-left: 50 px;
+    position: relative;
+  left: 20px;
 }

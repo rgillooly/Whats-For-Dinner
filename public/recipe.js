@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h1>Click on this recipe to see ingredients!</h1>
                     <img src="${hit.recipe.image}" alt="${hit.recipe.label}" />
                     <p>${hit.recipe.label}</p>
-                    <div id="ingredients-${index}" class='modal-hidden'>
+                    <div id="ingredients-${index}" class='modal-hidden ingredients'>
                         <p>Ingredients: ${hit.recipe.ingredientLines.join(', ')}</p>
                     </div>
                 `;
