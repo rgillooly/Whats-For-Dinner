@@ -6,9 +6,11 @@
         <h2>
             <a href="/dish/{{dish.id}}">{{dish.name}}</a>
         </h2>
-        <p>
-            {{dish.description}}
-        </p>
-        <p>Cooked Up By: {{dish.creator}}</p>
+        <ul>
+            {{#each dish.ingredients}}
+                <li>{{this}}</li>
+            {{/each}}
+        </ul>
+        <p>Cooked Up By: {{dish.username}}</p>
     </div>
 {{/each}}
