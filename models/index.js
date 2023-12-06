@@ -4,30 +4,30 @@ const Review = require('./review');
 const Favorite = require('./favorite')
 
 User.hasMany(Dish, {
-    foreignKey: 'id',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
 User.hasMany(Review, {
-    foreignKey: 'id',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
 Dish.belongsTo(User, {
-    foreignKey: 'id'
+    foreignKey: 'user_id'
 });
 
 Dish.hasMany(Review, {
-    foreignKey: 'id',
+    foreignKey: 'dish_id',
     onDelete: 'CASCADE'
 });
 
 Review.belongsTo(Dish, {
-    foreignKey: 'id'
+    foreignKey: 'dish_id'
 });
 
 Review.belongsTo(User, {
-    foreignKey: 'id'
+    foreignKey: 'user_id'
 });
 
 // Add Favorite model to associate users with their favorite dishes

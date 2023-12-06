@@ -2,7 +2,9 @@ const newFormHandler = async (event) => {
     event.preventDefault();
 
     const name = document.querySelector('#dish-name').value.trim();
-    const ingredients = document.querySelector('#ingredients').value.trim();
+    const ingredientsInput = document.querySelector('#ingredients').value.trim();
+
+    const ingredients = ingredientsInput.split('\n').map(ingredients => ingredients.trim());
 
     if (name && ingredients) {
         const response = await fetch('/api/dishes', {
