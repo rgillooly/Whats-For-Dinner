@@ -33,7 +33,6 @@ hits.forEach((hit, index) => {
     recipeDiv.innerHTML = `
         <img src="${hit.recipe.image}" alt="${hit.recipe.label}" />
         <p>${hit.recipe.label}</p>
-        <button class="favoriteButton">Favorite This Recipe</button>
         <div id="ingredients-${index}" class='modal-hidden ingredients'>
             <p>Ingredients: ${hit.recipe.ingredientLines.join(', ')}</p>
         </div>
