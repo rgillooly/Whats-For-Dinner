@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 const recipeDiv = document.createElement('div');
                 recipeDiv.className = 'recipe';
                 recipeDiv.innerHTML = `
-                <h1>Click on this recipe to see ingredients!</h1>
                     <img src="${hit.recipe.image}" alt="${hit.recipe.label}" />
                     <p>${hit.recipe.label}</p>
                     <div id="ingredients-${index}" class='modal-hidden ingredients'>
