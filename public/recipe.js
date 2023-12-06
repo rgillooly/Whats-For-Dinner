@@ -33,43 +33,27 @@ hits.forEach((hit, index) => {
     recipeDiv.innerHTML = `
         <img src="${hit.recipe.image}" alt="${hit.recipe.label}" />
         <p>${hit.recipe.label}</p>
-        <button class="favorite">Favorite This Recipe</button>
+        <button class="favoriteButton">Favorite This Recipe</button>
         <div id="ingredients-${index}" class='modal-hidden ingredients'>
             <p>Ingredients: ${hit.recipe.ingredientLines.join(', ')}</p>
         </div>
     `;
     
     recipeDiv.addEventListener('click', function () {
-        console.log(`Div clicked for recipe: ${hit.recipe.label}`);
-        var modal = document.getElementById(`ingredients-${index}`);
-        
-        if (modal) {  // Check if the modal element exists
-            modal.classList.toggle('modal-hidden');
-            modal.classList.toggle('modal-visible');
+        if (hit && hit.recipe && hit.recipe.label) {
+            console.log(`Div clicked for recipe: ${hit.recipe.label}`);
+            var modal = document.getElementById(`ingredients-${index}`);
+    
+            if (modal) {
+                modal.classList.toggle('modal-hidden');
+                modal.classList.toggle('modal-visible');
+            } else {
+                console.error(`Modal not found for index: ${index}`);
+            }
         } else {
-            console.error(`Modal not found for index: ${index}`);
+            console.error(`Invalid hit object or missing recipe.label for index: ${index}`);
         }
     });
-
-    function insertData() {
-        var div1Content = document.getElementById('recipeDiv-${index}').innerText;
-        var div2Content = document.getElementById('ingredients-${index}').innerText;
-    
-        fetch('http://localhost:3000/insert', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ div1Content, div2Content }),
-        })
-        .then(response => response.text())
-        .then(data => {
-            console.log(data); // You can handle the response from the server here
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
 
     recipeDivs.push(recipeDiv);  // Add the recipeDiv to the array
 
