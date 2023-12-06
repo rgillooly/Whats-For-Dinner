@@ -1,0 +1,12 @@
+.modal-hidden {
+    display: none;
+}
+
+.modal-visible {
+    display: block;
+}
+
+.resultsContainer {
+    position: relative;
+  left: 20px;
+}

@@ -37,20 +37,21 @@
               <a class="nav-link" href="/login">Login</a>
               {{/if}}
             </li>
-
-          </ul>
-          {{!-- search bar --}}
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchBar">
-            <button class="btn btn-outline-success" type="submit" id="searchBtn">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <div class="dishes">
-      {{{body}}}
+       </ul>
+      {{!-- search bar --}}
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchBar">
+        <button class="btn btn-outline-success" type="submit" id="searchBtn">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main>
+        <div class="dishes">
+            {{{body}}}
+            <div class="resultsContainer"><h1>After Searching, Click on a recipe to see ingredients!</h1></div>
+            <div id="resultsContainer" class="resultsContainer"></div>
     </div>
   </main>
   {{#if logged_in}}
