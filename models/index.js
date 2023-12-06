@@ -35,4 +35,4 @@ User.belongsToMany(Dish, { through: Favorite, as: 'favoriteDishes', foreignKey: 
 Dish.belongsToMany(User, { through: Favorite, as: 'favoritedBy', foreignKey: 'dishId' });
 
 
-module.exports = { User, Dish, Review };
+module.exports = { User, Dish, Review, Favorite };
