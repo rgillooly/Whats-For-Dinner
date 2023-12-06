@@ -11,13 +11,28 @@ Favorite.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
+    dishId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'dish',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Favorite',
+    modelName: 'favorite',
   }
 );
 
