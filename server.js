@@ -40,6 +40,8 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.set('views', path.join(__dirname, 'views'));
+
 // Middleware to parse JSON and URL-encoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -53,8 +55,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
   });
-
-// load the page with a search bar (Get Request)
-app.get('/', (req, res) => {
-    res.render('index.handlebars')
-});

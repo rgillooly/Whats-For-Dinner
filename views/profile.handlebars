@@ -1,0 +1,55 @@
+<div class="container">
+    <h2>Welcome, {{username}}!</h2>
+
+    <h3>Create a New Dish:</h3>
+
+    <form class="new-dish-form">
+        <div class="mb-3">
+            <label for="dish-name" class="form-label">Dish Name:</label>
+            <input type="text" id="dish-name" name="dish-name" class="form-control" />
+        </div>
+        <div>
+            <label for="ingredients" class="form-label">Ingredients:</label>
+            <textarea id="ingredients" name="ingredients" class="form-control" placeholder="Enter each ingredient on a new line"></textarea>
+        </div>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+
+    {{#if user.Dishes.length}}
+    <div class="dish-list">
+        <h3>My Dishes:</h3>
+
+        {{#each user.Dishes as |mydish|}}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title"><a href="/dish/{{mydish.id}}">{{mydish.name}}</a></h4>
+                <button data-id="{{mydish.id}}" class="btn btn-danger">DELETE</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <h3>You have no Dishes...</h3>
+    {{/if}}
+
+    {{#if myfavorites.length}}
+    <div class="dish-list">
+        <h3>My favorites:</h3>
+
+        {{#each myfavorites as |myfavorite|}}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title"><a href="/dish/{{dish.id}}">{{dish.name}}</a></h4>
+                <button data-id="{{dish.id}}" class="btn btn-danger">DELETE</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{else}}
+    <h3>You have no favorite dishes...</h3>
+    {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>

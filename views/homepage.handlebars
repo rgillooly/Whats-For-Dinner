@@ -1,14 +1,23 @@
 <!-- Loops over each object in the dishes array -->
-{{#each dishes as |dish| }}
-<div>
-    <div>
-        <img src="{{dish.img}}">
-        <h2>
-            <a href="/dish/{{dish.id}}">{{dish.name}}</a>
-        </h2>
-        <p>
-            {{dish.description}}
-        </p>
-        <p>Cooked Up By: {{dish.creator}}</p>
+<div class="container">
+    <div class="row">
+        {{#each dishes as |dish| }}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{{dish.img}}" class="card-img-top" alt="{{dish.name}} Image" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x200';">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="/dish/{{dish.id}}" class="text-reset text-decoration-none text-success">{{dish.name}}</a>
+                        <small class="text-muted">Cooked Up By: {{dish.username}}</small>
+                    </h5>
+                    <ul class="list-group list-group-flush">
+                        {{#each dish.ingredients}}
+                            <li class="list-group-item">{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>

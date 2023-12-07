@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Dish, User, Review } = require('../models/index');
+const { Dish, User, Review, Favorite } = require('../models/index');
 const withAuth = require('../utils/auth');
 
 //Route to get all dishes with associated user data
@@ -9,12 +9,18 @@ router.get('/', async (req,res) => {
             include: [
                 {
                 model: User,
-                attributes: ['name'],
+                as: 'user',
+                attributes: ['username'],
              },
             ],
         });
         // Serialize data so the template can read it
-        const dishes = dishData.map((dish) => dish.get({ plain: true}));
+        const dishes = dishData.map((dish) => {
+            return {
+                ...dish.get({ plain: true }),
+                username: dish.user.username
+            };
+        });
         
         // Pass serialized data and session flag into template
         res.render('homepage', {
@@ -32,14 +38,14 @@ router.get('/dish/:id', async (req, res) => {
             include: [
                 {
                     model: User,
-                    attributes: ['name'],
+                    attributes: ['username'],
                 },
                 {
                     model: Review,
                     include: [
                         {
                             model: User,
-                            attributes: ['name'],
+                            attributes: ['username'],
                         },
                     ],
                 },
@@ -77,6 +83,24 @@ router.get('/profile', withAuth, async (req, res) => {
     }
 });
 
+// Route to display user's favorite dishes
+router.get('/favorites', withAuth, async (req, res) => {
+    try {
+        const userId = req.session.user_id;
+
+        // Fetch the user's favorite dishes
+        const userFavorites = await Favorite.findAll({
+            where: { userId },
+            include: [{ model: Dish, attributes: ['id', 'username'] }]
+        });
+
+        const favorites = userFavorites.map((favorite) => favorite.Dish);
+
+        res.render('favorites', { favorites, logged_in: true });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 router.get('/login', (req,res) => {
     if (req.session.logged_in) {

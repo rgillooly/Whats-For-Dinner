@@ -1,0 +1,18 @@
+{{#if myfavorites.length}}
+<div>
+    <h3>My favorites:</h3>
+
+    {{#each myfavorites as |myfavorite|}}
+    <div>
+        <div>
+            <h4><a href="/dish/{{dish.id}}">{{dish.name}}</a></h4>
+        </div>
+        <div>
+            <button data-id="{{dish.id}}">DELETE</button>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{else}}
+<h3>You have not favorited any dishes...</h3>
+{{/if}}
