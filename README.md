@@ -62,7 +62,7 @@ Whats For Dinner is a web application that allows users to discover, share, and 
 - Interact with the community by sharing, and saving recipes.
 
 ## Deployment
-This application is deployed using Heroku and can be accessed at [Whats-For-Dinner](https://your-heroku-app-url).
+This application is deployed using Heroku and can be accessed at [Whats-For-Dinner](https://recipe-finder-whats-for-dinner-17c80c97d30f.herokuapp.com/).
 
 ## Contributors
 
