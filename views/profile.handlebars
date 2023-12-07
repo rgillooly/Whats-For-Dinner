@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4">
     <h2>Welcome, {{username}}!</h2>
 
     <h3>Create a New Dish:</h3>
@@ -17,15 +17,16 @@
         </div>
     </form>
 
-    {{#if user.Dishes.length}}
+    {{#if dishes.length}}
     <div class="dish-list">
         <h3>My Dishes:</h3>
 
-        {{#each user.Dishes as |mydish|}}
+        {{#each dishes as |mydish|}}
         <div class="card mb-3">
             <div class="card-body">
-                <h4 class="card-title"><a href="/dish/{{mydish.id}}">{{mydish.name}}</a></h4>
-                <button data-id="{{mydish.id}}" class="btn btn-danger">DELETE</button>
+                <img src="{{dish.img}}" class="card-img-top" alt="{{dish.name}} Image" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x200';">
+                <h4 class="card-title"><a href="/dish/{{mydish.id}}" class="text-reset text-decoration-none text-success">{{mydish.name}}</a></h4>
+                <button data-id="{{mydish.id}}" class="btn btn-danger mt-4">DELETE</button>
             </div>
         </div>
         {{/each}}
