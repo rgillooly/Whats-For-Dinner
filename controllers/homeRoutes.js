@@ -9,12 +9,18 @@ router.get('/', async (req,res) => {
             include: [
                 {
                 model: User,
+                as: 'user',
                 attributes: ['username'],
              },
             ],
         });
         // Serialize data so the template can read it
-        const dishes = dishData.map((dish) => dish.get({ plain: true}));
+        const dishes = dishData.map((dish) => {
+            return {
+                ...dish.get({ plain: true }),
+                username: dish.user.username
+            };
+        });
         
         // Pass serialized data and session flag into template
         res.render('homepage', {

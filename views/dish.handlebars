@@ -1,0 +1,11 @@
+<div class="contianer text-center mt-4">
+    <h2>{{name}}</h2>
+    <img src="{{img}}" alt="{{name}} Image" onerror="this.onerror=null;this.src='https://via.placeholder.com/300x200';">
+    <p>Cooked up by: {{user.username}}</p>
+
+    <ul class="list-unstyled">
+        {{#each ingredients}}
+            <li>{{this}}</li>
+        {{/each}}
+    </ul>
+</div>

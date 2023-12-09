@@ -14,7 +14,7 @@
 
 ## Description
 
-Whats For Dinner is a web application that allows users to discover, share, and explore a wide range of recipes. Users can upload images of ingredients or dishes to find related recipes, search for specific recipes, and interact with a vibrant community of cooking enthusiasts.
+Whats For Dinner is a web application that allows users to discover, share, and explore a wide range of recipes. Users can search for specific recipes, and interact with a vibrant community of cooking enthusiasts.
 
 ## Technologies
 
@@ -25,7 +25,7 @@ Whats For Dinner is a web application that allows users to discover, share, and 
 - Handlebars.js
 - Express-session & Cookies (Authentication)
 - Heroku (Deployment)
-- HTML, CSS
+- HTML, CSS, Bootstrap CSS
 
 ## Features
 
@@ -58,12 +58,11 @@ Whats For Dinner is a web application that allows users to discover, share, and 
 ## Usage
 
 - Register an account or log in to start exploring recipes.
-- Upload images of ingredients or dishes to find related recipes.
-- Search for recipes using keywords, categories, or ingredients.
-- Interact with the community by sharing, rating, and saving recipes.
+- Search for recipes using key words
+- Interact with the community by sharing, and saving recipes.
 
 ## Deployment
-This application is deployed using Heroku and can be accessed at [Whats-For-Dinner](https://your-heroku-app-url).
+This application is deployed using Heroku and can be accessed at [Whats-For-Dinner](https://recipe-finder-whats-for-dinner-17c80c97d30f.herokuapp.com/).
 
 ## Contributors
 
